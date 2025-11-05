@@ -1,0 +1,16 @@
+services:
+  shantyy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: shantyy_container
+    ports:
+      - "3838:3838"
+    volumes:
+      - ../temp_music:/music
+      - ./app:/app
+      - ./config:/config
+    environment:
+      - NODE_ENV=development
+    user: "${UID}:${GID}"
+    restart: unless-stopped
