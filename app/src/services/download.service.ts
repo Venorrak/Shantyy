@@ -66,15 +66,15 @@ class DownloadQueue {
     }
 
     private buildSpotdlArgs(job: DownloadJob): string[] {
-        const args = [];
+        const args = ["download"];
 
-        // Example: Add artist and title to form a search query
+        // Add the search query (artist - title)
         args.push(`${job.artist} - ${job.title}`);
-
+        
         // Add more arguments based on configuration as needed
         // e.g., output format, download location, etc.
         args.push("--config");
-
+        
         return args;
     }
 

@@ -18,7 +18,7 @@ class ConfigService {
     refreshSpotdlConfig() {
         // Load config from /config/config_spotdl.json
         const externalConfigPath = "/config/config_spotdl.json";
-        const spotdlConfigDir = join(homedir(), ".config", "spotdl");
+        const spotdlConfigDir = join(homedir(), ".spotdl");
         const spotdlConfigPath = join(spotdlConfigDir, "config.json");
 
         if (existsSync(externalConfigPath)) {

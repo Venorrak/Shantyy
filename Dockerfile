@@ -19,8 +19,8 @@ RUN apt-get update && apt-get install -y \
 
 RUN python3 -m venv /opt/venv \
     && /opt/venv/bin/pip install --upgrade pip setuptools wheel \
-    && /opt/venv/bin/pip install spotdl \
-    && /opt/venv/bin/pip install --update yt-dlp \
+    && /opt/venv/bin/pip install --upgrade yt-dlp \
+    && /opt/venv/bin/pip install spotdl==4.4.0 \
     && ln -s /opt/venv/bin/spotdl /usr/local/bin/spotdl
 
 RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
@@ -29,6 +29,8 @@ RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
 
 RUN curl -fsSL https://bun.sh/install | bash \
     && mv /root/.bun/bin/bun /usr/local/bin/bun
+
+RUN mkdir -p /app/music && chmod 777 /app/music
 
 EXPOSE 3838
 

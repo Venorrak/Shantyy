@@ -17,3 +17,6 @@ To run for production:
 ```bash
 bun start
 ```
+
+https://github.com/spotDL/spotify-downloader/issues/2547
+Dockerfile -> spotdl=4.4.0
