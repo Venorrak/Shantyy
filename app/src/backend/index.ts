@@ -1,9 +1,6 @@
 import { serve } from "bun";
-import index from "./frontend/index.html";
-import { configService } from "./services/config.service";
+import index from "../frontend/index.html";
 import { downloadRoutes } from "./api/download";
-
-configService.refreshSpotdlConfig();
 
 const server = serve({
   port: 3838,

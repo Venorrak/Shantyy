@@ -9,7 +9,6 @@ services:
     volumes:
       - ../temp_music:/music
       - ./app:/app
-      - ./config:/config
     environment:
       - NODE_ENV=development
     user: "${UID}:${GID}"

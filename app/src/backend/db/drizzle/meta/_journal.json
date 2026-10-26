@@ -1,0 +1,20 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1768107162231,
+      "tag": "0000_nappy_ink",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1768174841196,
+      "tag": "0001_classy_vapor",
+      "breakpoints": true
+    }
+  ]
+}

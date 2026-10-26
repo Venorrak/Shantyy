@@ -1,7 +1,8 @@
-FROM ubuntu:24.04
+FROM oven/bun:latest
 LABEL maintainer="venorrak"
 
 COPY ./app /app
+WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
     sudo \
@@ -9,26 +10,14 @@ RUN apt-get update && apt-get install -y \
     git \
     curl \
     wget \
-    build-essential \
-    python3 \
-    python3-pip \
     unzip \
+    build-essential \
+    sqlite3 \
+    python3 \
     ffmpeg \
-    python3-venv \
     && rm -rf /var/lib/apt/lists/*
 
-RUN python3 -m venv /opt/venv \
-    && /opt/venv/bin/pip install --upgrade pip setuptools wheel \
-    && /opt/venv/bin/pip install --upgrade yt-dlp \
-    && /opt/venv/bin/pip install spotdl==4.4.0 \
-    && ln -s /opt/venv/bin/spotdl /usr/local/bin/spotdl
-
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN curl -fsSL https://bun.sh/install | bash \
-    && mv /root/.bun/bin/bun /usr/local/bin/bun
+RUN bun install
 
 RUN mkdir -p /app/music && chmod 777 /app/music
 
